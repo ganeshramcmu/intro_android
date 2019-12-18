@@ -24,7 +24,7 @@ before_install:
 script:
 - "./gradlew build check --daemon"
 - ./gradlew assembleDebug
-- ls output/apk/
+- ls -R /home/travis/build/ganeshramcmu/intro_android/app/build/outputs/
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/

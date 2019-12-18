@@ -18,11 +18,13 @@ android:
   licenses:
   - android-sdk-license-.+
 before_install:
+  - chmod +x gradlew
   - yes | sdkmanager "platforms;android-28"
 
 script:
 - "./gradlew build check --daemon"
 - ./gradlew assembleDebug
+- ls output/apk/
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/

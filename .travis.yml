@@ -24,7 +24,6 @@ before_install:
 script:
 - "./gradlew build check --daemon"
 - ./gradlew assembleDebug
-- ls -R /home/travis/build/ganeshramcmu/intro_android/app/build/outputs/
 - if [ $PIPE_STAGE == "STAGE" ] ; then      echo "a is equal to b"; fi 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock

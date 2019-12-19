@@ -9,6 +9,7 @@ buildscript {
     }
 }
 println System.getenv("HOME")
+println "HELLO WORLD"
 allprojects {
     repositories {
         jcenter()

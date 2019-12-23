@@ -8,12 +8,23 @@ android {
         minSdkVersion 21
         targetSdkVersion 28
     }
-
+    signingConfigs {
+        release
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.release
         }
+    }
+
+    def isRunningOnTravis = System.getenv("CI") == "true"
+    if (isRunningOnTravis) {
+        signingConfigs.release.storeFile = file("../intro_key_store.jks")
+        signingConfigs.release.storePassword = "safety"
+        signingConfigs.release.keyAlias = "intro_key0"
+        signingConfigs.release.keyPassword = "safety2"
     }
 }
 
